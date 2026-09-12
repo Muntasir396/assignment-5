@@ -23,10 +23,15 @@ function Banner() {
                     {/* Buttons */}
                     <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row lg:justify-start">
 
-                        <button className="rounded-lg bg-gradient-to-r from-orange-500 via-pink-500 to-violet-500 px-6 py-3 font-medium text-white">
+                        {/* Explore Technologies */}
+                        <a
+                            href="#technologies"
+                            className="rounded-lg bg-gradient-to-r from-orange-500 via-pink-500 to-violet-500 px-6 py-3 font-medium text-white"
+                        >
                             Explore Technologies
-                        </button>
+                        </a>
 
+                        {/* Learn More */}
                         <button className="rounded-lg border border-gray-300 bg-white px-6 py-3 font-medium text-gray-700 hover:bg-gray-50">
                             Learn More
                         </button>
