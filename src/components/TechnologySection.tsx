@@ -26,7 +26,7 @@ function TechnologySection() {
     }
 
     return (
-        <section className="py-16">
+        <section id="technologies" className="py-16">
             <div className="mx-auto max-w-7xl px-6">
 
                 {/* Section Heading */}
