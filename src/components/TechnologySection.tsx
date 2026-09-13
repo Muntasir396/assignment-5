@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
 import { toast } from "react-toastify"
-import technologiesData from "../data/technologies.json"
 import TechnologyCard from "./TechnologyCard"
 import StackPanel from "./StackPanel"
 
@@ -20,12 +19,30 @@ function TechnologySection() {
     const [selectedTechnologies, setSelectedTechnologies] = useState<string[]>([])
     const [loading, setLoading] = useState(true)
 
-
     useEffect(() => {
-        setTechnologies(technologiesData)
-        setLoading(false)
-    }, [])
+        const loadTechnologies = async () => {
+            try {
+                const response = await fetch(
+                    new URL("../data/technologies.json", import.meta.url)
+                )
 
+                if (!response.ok) {
+                    throw new Error("Failed to load technologies")
+                }
+
+                const data: Technology[] = await response.json()
+
+                setTechnologies(data)
+            } catch (error) {
+                console.error("Technology loading error:", error)
+                toast.error("Failed to load technologies.")
+            } finally {
+                setLoading(false)
+            }
+        }
+
+        loadTechnologies()
+    }, [])
 
     const handleAddToStack = (technologyId: string) => {
         if (selectedTechnologies.includes(technologyId)) {
@@ -42,7 +59,6 @@ function TechnologySection() {
         toast.success(`${technology?.name} added to your stack!`)
     }
 
-
     const handleRemoveFromStack = (technologyId: string) => {
         const technology = technologies.find(
             (item) => item.id === technologyId
@@ -54,7 +70,6 @@ function TechnologySection() {
 
         toast.info(`${technology?.name} removed from your stack.`)
     }
-
 
     const handleRemoveAll = () => {
         if (selectedTechnologies.length === 0) {
@@ -71,7 +86,7 @@ function TechnologySection() {
         <section id="technologies" className="py-16">
             <div className="mx-auto max-w-7xl px-6">
 
-
+                {/* Section Heading */}
                 <div className="mb-10">
                     <h2 className="text-3xl font-bold text-gray-900">
                         Explore the Technologies
@@ -82,19 +97,20 @@ function TechnologySection() {
                     </p>
                 </div>
 
-
+                {/* Loading */}
                 {loading ? (
                     <div className="flex min-h-60 items-center justify-center">
                         <div className="text-center">
+
                             <div className="mx-auto h-10 w-10 animate-spin rounded-full border-4 border-gray-200 border-t-pink-500" />
 
                             <p className="mt-4 text-sm text-gray-500">
                                 Loading technologies...
                             </p>
+
                         </div>
                     </div>
                 ) : (
-
                     <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_280px]">
 
                         {/* Technology Cards */}
@@ -109,7 +125,7 @@ function TechnologySection() {
                             ))}
                         </div>
 
-
+                        {/* Stack */}
                         <StackPanel
                             selectedTechnologies={selectedTechnologies}
                             onRemoveFromStack={handleRemoveFromStack}
@@ -118,7 +134,6 @@ function TechnologySection() {
 
                     </div>
                 )}
-
             </div>
         </section>
     )
