@@ -7,10 +7,10 @@ function Navbar() {
     <nav className="sticky top-0 z-50 border-b border-gray-100 bg-white">
       <div className="mx-auto max-w-7xl px-6 py-4">
 
-        {/* Main Navbar */}
+
         <div className="flex items-center justify-between">
 
-          {/* Mobile Menu Button */}
+
           <button
             onClick={() => setMenuOpen(!menuOpen)}
             className="text-2xl text-gray-700 lg:hidden"
@@ -19,7 +19,7 @@ function Navbar() {
             {menuOpen ? "✕" : "☰"}
           </button>
 
-          {/* Logo & Brand */}
+
           <a href="#" className="flex items-center gap-2">
             <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-r from-orange-500 via-pink-500 to-violet-500 text-xs font-bold text-white">
               DS
@@ -30,7 +30,6 @@ function Navbar() {
             </h1>
           </a>
 
-          {/* Desktop Navigation */}
           <div className="hidden items-center gap-8 text-sm lg:flex">
             <a href="#" className="text-pink-500">
               Home
@@ -65,7 +64,6 @@ function Navbar() {
             </a>
           </div>
 
-          {/* Buttons */}
           <div className="flex items-center gap-3">
             <button className="text-sm text-gray-600 hover:text-gray-900">
               Sign In
@@ -78,7 +76,6 @@ function Navbar() {
 
         </div>
 
-        {/* Mobile Menu */}
         {menuOpen && (
           <div className="mt-4 border-t border-gray-100 pt-4 lg:hidden">
             <div className="flex flex-col gap-4 text-sm">

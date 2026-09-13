@@ -3,7 +3,7 @@ function Banner() {
         <section className="py-16 md:py-20 lg:py-24">
             <div className="mx-auto flex max-w-7xl flex-col items-center gap-10 px-6 lg:flex-row lg:justify-between lg:gap-12">
 
-                {/* Left Side */}
+
                 <div className="w-full text-center lg:w-1/2 lg:text-left">
 
                     <h1 className="text-4xl font-bold leading-tight text-gray-900 sm:text-5xl lg:text-6xl">
@@ -20,10 +20,9 @@ function Banner() {
                         your next project.
                     </p>
 
-                    {/* Buttons */}
                     <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row lg:justify-start">
 
-                        {/* Explore Technologies */}
+
                         <a
                             href="#technologies"
                             className="rounded-lg bg-gradient-to-r from-orange-500 via-pink-500 to-violet-500 px-6 py-3 font-medium text-white"
@@ -31,7 +30,7 @@ function Banner() {
                             Explore Technologies
                         </a>
 
-                        {/* Learn More */}
+
                         <button className="rounded-lg border border-gray-300 bg-white px-6 py-3 font-medium text-gray-700 hover:bg-gray-50">
                             Learn More
                         </button>
@@ -39,7 +38,7 @@ function Banner() {
                     </div>
                 </div>
 
-                {/* Right Side */}
+
                 <div className="flex w-full justify-center lg:w-1/2">
                     <img
                         src="/banner-stack.png"

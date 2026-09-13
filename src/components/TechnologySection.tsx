@@ -20,13 +20,13 @@ function TechnologySection() {
     const [selectedTechnologies, setSelectedTechnologies] = useState<string[]>([])
     const [loading, setLoading] = useState(true)
 
-    // Load technologies from JSON
+
     useEffect(() => {
         setTechnologies(technologiesData)
         setLoading(false)
     }, [])
 
-    // Add technology
+
     const handleAddToStack = (technologyId: string) => {
         if (selectedTechnologies.includes(technologyId)) {
             toast.warning("This technology is already in your stack!")
@@ -42,7 +42,7 @@ function TechnologySection() {
         toast.success(`${technology?.name} added to your stack!`)
     }
 
-    // Remove one technology
+
     const handleRemoveFromStack = (technologyId: string) => {
         const technology = technologies.find(
             (item) => item.id === technologyId
@@ -55,7 +55,7 @@ function TechnologySection() {
         toast.info(`${technology?.name} removed from your stack.`)
     }
 
-    // Remove all technologies
+
     const handleRemoveAll = () => {
         if (selectedTechnologies.length === 0) {
             toast.warning("Your stack is already empty!")
@@ -71,7 +71,7 @@ function TechnologySection() {
         <section id="technologies" className="py-16">
             <div className="mx-auto max-w-7xl px-6">
 
-                {/* Section Heading */}
+
                 <div className="mb-10">
                     <h2 className="text-3xl font-bold text-gray-900">
                         Explore the Technologies
@@ -82,7 +82,7 @@ function TechnologySection() {
                     </p>
                 </div>
 
-                {/* Loading State */}
+
                 {loading ? (
                     <div className="flex min-h-60 items-center justify-center">
                         <div className="text-center">
@@ -94,7 +94,7 @@ function TechnologySection() {
                         </div>
                     </div>
                 ) : (
-                    /* Cards + Your Stack */
+
                     <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_280px]">
 
                         {/* Technology Cards */}
@@ -109,7 +109,7 @@ function TechnologySection() {
                             ))}
                         </div>
 
-                        {/* Your Stack */}
+
                         <StackPanel
                             selectedTechnologies={selectedTechnologies}
                             onRemoveFromStack={handleRemoveFromStack}
